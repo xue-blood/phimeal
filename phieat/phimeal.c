@@ -384,7 +384,11 @@ void update()
 
 void init()
 {
-	font = ftglCreatePixmapFont("C:\\Windows\\Fonts\\Arial.ttf");
+	char * path = SDL_GetBasePath();
+	char name[128] = { 0 };
+	sprintf(name,"%s%s", path, "PressStart2P-Regular.ttf");
+
+	font = ftglCreatePixmapFont(name);
 	
 	glEnable(GL_BLEND); 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
